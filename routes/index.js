@@ -83,7 +83,7 @@ function convert(req, res, url, disposition, preProcessMd, preProcessHtml) {
       fs.exists(outputPath, function(exists) {
         var pdfFilename = 'gitprint__' + (req.path.replace(/[^a-zA-Z0-9-_\.]/gi,'-')).substr(0, MAX_FILENAME_LEN) + '.pdf';
         var headerContentDisposition = (disposition || DEFAULT_DISPOSITION) + '; filename="' + pdfFilename + '"';
-        
+
         res.setHeader('Content-disposition', headerContentDisposition);
         res.contentType('application/pdf');
 
@@ -170,5 +170,5 @@ exports.render = render;
 
 /* GET home page. */
 exports.index = function(req, res){
-  res.render('index');
+  res.render('blank');
 };
